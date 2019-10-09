@@ -8,6 +8,6 @@ const readAsync = require('./lib/async-await.js');
 // let file = `${__dirname}/data/person.json`;
 let file = process.argv.slice(2);
 
-readCallback(file);
-// readPromise(file);
+// readCallback(file);
+readPromise(file);
 // readAsync(file);
