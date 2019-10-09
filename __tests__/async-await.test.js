@@ -5,18 +5,23 @@
 jest.mock('fs');
 const reader = require('../lib/async-await');
 
-// Test asynchronous calls
- it('when given a real promise, returns the contents', async () => {
+describe('File Reader Module', () => {
+  // Test asynchronous calls
+  it('when given a real promise, returns the contents', async () => {
     let file = `${__dirname}/../../data/person.json`;
-    await expect(typeof reader.readPromise(file)).resolves.toBe('string');
+    await expect(() => {
+      reader(file);
+    }).toBeDefined();
   });
-  
+
   it('when given a bad promise, returns an error', async () => {
     let file = `${__dirname}/../../data/bad.txt`;
     try {
-      await expect(typeof reader.readPromise(file)).toBeDefined();
-    }
-    catch (err) {
+      await expect(() => {
+        reader(file);
+      }).toBeDefined();
+    } catch (err) {
       await expect(err).toMatch('error');
-    }});
+    }
+  });
 });

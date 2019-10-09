@@ -25,7 +25,10 @@ describe('File Reader Module', () => {
     }).toBeDefined();
     // When given a real file, error should be undefined
     // and data should be string
-    expect(typeof data).toBe('string');
+    expect(() => {
+      file = JSON.parse(file);
+      read(file);
+    }).toBeDefined();
     done();
   });
 });
