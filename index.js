@@ -9,5 +9,5 @@ const readAsync = require('./lib/async-await.js');
 let file = process.argv.slice(2);
 
 // readCallback(file);
-readPromise(file);
-// readAsync(file);
+// readPromise(file);
+readAsync(file);
