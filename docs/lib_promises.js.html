@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: lib/promises.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,52 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: lib/promises.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
 
+const fs = require('fs');
+const faker = require('faker');
+const util = require('util');
+const promise = util.promisify(fs.readFile);
+const write = util.promisify(fs.writeFile);
 
-    <h3> </h3>
+/**
+ *
+ * @param {json} file
+ * @function readPromise
+ */
+function readPromise(file) {
+  let path = `${process.cwd()}/${file}`;
+  try {
+    return promise(path)
+      .then(data => {
+        data = JSON.parse(data);
+        console.log('Original Promise Data: ', data);
+        data.email = faker.internet.email();
+        data = JSON.stringify(data);
+        return data;
+      })
+      .then(data => {
+        console.log('New Promise Data: ', JSON.parse(data));
+        return write(path, data).catch(err => err);
+      });
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = readPromise;
+</code></pre>
+        </article>
+    </section>
 
 
 
