@@ -1,1 +1,11 @@
-{"firstName":"Edward","lastName":"Scissorhands","hair":{"type":"wavy","color":"brown"},"favoriteFoods":["pizza","cupcakes","children"],"married":false,"kids":0,"jobTitle":"International Marketing Developer"}
+{
+  "firstName": "Edward",
+  "lastName": "Scissorhands",
+  "hair": { "type": "wavy", "color": "brown" },
+  "favoriteFoods": ["pizza", "cupcakes", "children"],
+  "married": false,
+  "kids": 0,
+  "jobTitle": "International Marketing Developer",
+  "favoriteColor": "violet",
+  "email": "Kayli_Towne@gmail.com"
+}

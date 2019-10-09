@@ -5,9 +5,8 @@ const readCallback = require('./lib/callbacks.js');
 const readPromise = require('./lib/promises.js');
 const readAsync = require('./lib/async-await.js');
 
-// let file = `${__dirname}/data/person.json`;
 let file = process.argv.slice(2);
 
 // readCallback(file);
-// readPromise(file);
-readAsync(file);
+readPromise(file);
+// readAsync(file);
